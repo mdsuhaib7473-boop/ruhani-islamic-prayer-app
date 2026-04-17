@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@400;700&family=Nunito:wght@200;300;400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    --background: 0.06 0.02 255;
+    --foreground: 0.95 0.03 75;
+    --card: 0.09 0.02 255;
+    --card-foreground: 0.95 0.03 75;
+    --popover: 0.1 0.02 255;
+    --popover-foreground: 0.95 0.03 75;
+    --primary: 0.72 0.12 75;
+    --primary-foreground: 0.06 0.02 255;
+    --secondary: 0.12 0.02 255;
+    --secondary-foreground: 0.85 0.03 75;
+    --muted: 0.14 0.02 255;
+    --muted-foreground: 0.48 0.04 75;
+    --accent: 0.45 0.12 155;
+    --accent-foreground: 0.95 0.01 75;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.18 0.03 75;
+    --input: 0.14 0.02 255;
+    --ring: 0.72 0.12 75;
+    --chart-1: 0.72 0.12 75;
+    --chart-2: 0.6 0.118 184;
+    --chart-3: 0.45 0.12 155;
+    --chart-4: 0.828 0.189 84;
+    --chart-5: 0.769 0.188 70;
+    --sidebar: 0.09 0.02 255;
+    --sidebar-foreground: 0.95 0.03 75;
+    --sidebar-primary: 0.72 0.12 75;
+    --sidebar-primary-foreground: 0.06 0.02 255;
+    --sidebar-accent: 0.12 0.02 255;
+    --sidebar-accent-foreground: 0.85 0.03 75;
+    --sidebar-border: 0.18 0.03 75;
+    --sidebar-ring: 0.72 0.12 75;
+  }
+
+  * {
+    @apply border-border;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-color: #04080f;
+    color: #f5efe0;
+    font-family: "Nunito", sans-serif;
+    font-weight: 300;
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+.arabic {
+  font-family: "Amiri", serif;
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+.font-cinzel {
+  font-family: "Cinzel Decorative", serif;
+}
+
+.font-nunito {
+  font-family: "Nunito", sans-serif;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.1;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes rotateRing {
+  from {
+    transform: rotate(-90deg);
+  }
+  to {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes tapBounce {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(0.93);
+  }
+  70% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rippleOut {
+  from {
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+    margin: -10px;
+  }
+  to {
+    width: 260px;
+    height: 260px;
+    opacity: 0;
+    margin: -130px;
+  }
+}
+
+@keyframes heartPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes cardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes duaGlowPulse {
+  0% {
+    box-shadow: 0 0 0 2px #d4a843, 0 0 28px 6px rgba(212, 168, 67, 0.55), 0 2px
+      20px rgba(0, 0, 0, 0.3);
+  }
+  40% {
+    box-shadow: 0 0 0 3px #f0c84a, 0 0 40px 12px rgba(212, 168, 67, 0.65), 0 2px
+      20px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 0px transparent, 0 0 0px 0px transparent, 0 2px 20px
+      rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes confettiFall {
+  from {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes numberFlip {
+  from {
+    opacity: 0;
+    transform: translateY(60%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes goldScreenGlow {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes crescentDraw {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes letterAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes starAppear {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes tabSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
