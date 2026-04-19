@@ -309,61 +309,118 @@ function AboutDisclaimerSection() {
     fontSize: 13,
     color: theme.textCream,
     lineHeight: 1.7,
+    margin: 0,
   };
 
-  const dividerStyle: React.CSSProperties = {
+  const goldDividerStyle: React.CSSProperties = {
     height: 1,
-    background: theme.cardBorder,
-    margin: "16px 0",
+    border: "none",
+    background: `linear-gradient(90deg, transparent, ${theme.gold}55, transparent)`,
+    margin: "18px 0",
   };
+
+  const features = [
+    "Daily Duas (Morning, Evening, etc.)",
+    "Tasbeeh Counter",
+    "99 Names of Allah",
+    "Prayer Times (based on location)",
+  ];
+
+  const disclaimerParagraphs = [
+    "All duas and Islamic content in this app are collected from authentic sources such as the Qur'an and Hadith (Sahih, Hasan references where possible). However, there may be minor differences in wording or translation.",
+    "Prayer times are calculated based on location and standard calculation methods, and may vary slightly.",
+    "Hijri dates are based on calculation and may differ by ±1 day depending on local moon sighting.",
+    "Users are advised to verify important religious matters with trusted scholars.",
+  ];
 
   return (
     <div style={{ marginBottom: 20 }}>
       <SectionHeader>About &amp; Disclaimer</SectionHeader>
       <GlassCard>
         <div style={{ padding: 20 }}>
-          <div style={{ textAlign: "center", marginBottom: 4 }}>
+          {/* ── About Ruhani ── */}
+          <div style={{ textAlign: "center", marginBottom: 16 }}>
             <div
               style={{
                 fontFamily: "'Cinzel Decorative', serif",
                 fontSize: 18,
                 color: theme.gold,
-                marginBottom: 12,
+                marginBottom: 14,
+                textShadow: "0 0 20px rgba(212,168,67,0.4)",
               }}
             >
-              About Ruhani – Duas &amp; Tasbeeh
+              About Ruhani
             </div>
-            <div
-              style={{
-                height: 1,
-                background: `linear-gradient(90deg, transparent, ${theme.gold}60, transparent)`,
-                marginBottom: 16,
-              }}
-            />
+            <div style={goldDividerStyle} />
           </div>
-          <div>
-            <div style={labelStyle}>About</div>
-            <p style={bodyStyle}>
-              Ruhani – Duas &amp; Tasbeeh is an Islamic app designed to help
-              Muslims with daily duas, tasbeeh, and remembrance of Allah. Our
-              goal is to provide authentic and easy-to-use Islamic content for
-              everyone.
-            </p>
+
+          <p style={{ ...bodyStyle, marginBottom: 16 }}>
+            Ruhani – Duas &amp; Tasbeeh is a simple Islamic app designed to help
+            Muslims stay connected with daily duas, tasbeeh, and remembrance of
+            Allah. The app provides authentic supplications with Arabic text,
+            transliteration, and meanings for easy understanding.
+          </p>
+
+          {/* Features */}
+          <div style={{ marginBottom: 4 }}>
+            <div style={labelStyle}>Features</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              {features.map((feature) => (
+                <div
+                  key={feature}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: 8,
+                  }}
+                >
+                  <span
+                    style={{
+                      color: theme.gold,
+                      fontSize: 10,
+                      lineHeight: "22px",
+                      flexShrink: 0,
+                      textShadow: `0 0 8px ${theme.gold}80`,
+                    }}
+                  >
+                    ✦
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: "'Nunito', sans-serif",
+                      fontWeight: 300,
+                      fontSize: 13,
+                      color: theme.textCream,
+                      lineHeight: 1.7,
+                    }}
+                  >
+                    {feature}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div style={dividerStyle} />
-          <div>
+
+          <div style={goldDividerStyle} />
+
+          {/* ── Disclaimer ── */}
+          <div style={{ marginBottom: 0 }}>
             <div style={labelStyle}>Disclaimer</div>
-            <p style={bodyStyle}>
-              All duas and content in this app are collected from authentic
-              sources such as the Quran and Hadith. We strive for accuracy, but
-              if you find any mistake, please contact us so we can correct it.
-            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {disclaimerParagraphs.map((para) => (
+                <p key={para.slice(0, 30)} style={bodyStyle}>
+                  {para}
+                </p>
+              ))}
+            </div>
           </div>
-          <div style={dividerStyle} />
-          <div>
+
+          <div style={goldDividerStyle} />
+
+          {/* ── Contact ── */}
+          <div style={{ marginBottom: 0 }}>
             <div style={labelStyle}>Contact</div>
-            <p style={{ ...bodyStyle, marginBottom: 0 }}>
-              Email:{" "}
+            <p style={bodyStyle}>
               <a
                 href="mailto:ruhaniapp@gmail.com"
                 data-ocid="about.contact.link"
@@ -371,14 +428,280 @@ function AboutDisclaimerSection() {
                   color: theme.gold,
                   textDecoration: "none",
                   fontWeight: 400,
-                  borderBottom: `1px solid ${theme.gold}50`,
+                  borderBottom: `1px solid ${theme.gold}55`,
                   paddingBottom: 1,
-                  transition: "border-color 0.2s ease",
+                  transition: "border-color 0.2s ease, opacity 0.2s ease",
                 }}
               >
                 ruhaniapp@gmail.com
               </a>
             </p>
+          </div>
+
+          {/* ── Footer ── */}
+          <div
+            style={{
+              height: 1,
+              border: "none",
+              background: `linear-gradient(90deg, transparent, ${theme.gold}40, transparent)`,
+              margin: "20px 0 14px",
+            }}
+          />
+          <div style={{ textAlign: "center" }}>
+            <span
+              style={{
+                fontFamily: "'Nunito', sans-serif",
+                fontWeight: 300,
+                fontSize: 12,
+                color: theme.textCream,
+                textShadow: `0 0 10px ${theme.gold}50`,
+                letterSpacing: "0.03em",
+              }}
+            >
+              Made with ❤️ for the Ummah
+            </span>
+          </div>
+        </div>
+      </GlassCard>
+    </div>
+  );
+}
+
+function PrivacyPolicySection() {
+  const { theme } = useTheme();
+
+  const labelStyle: React.CSSProperties = {
+    fontFamily: "'Nunito', sans-serif",
+    fontWeight: 600,
+    fontSize: 11,
+    textTransform: "uppercase",
+    letterSpacing: "0.1em",
+    color: theme.gold,
+    marginBottom: 6,
+  };
+
+  const bodyStyle: React.CSSProperties = {
+    fontFamily: "'Nunito', sans-serif",
+    fontWeight: 300,
+    fontSize: 13,
+    color: theme.textCream,
+    lineHeight: 1.7,
+    margin: 0,
+  };
+
+  const goldDividerStyle: React.CSSProperties = {
+    height: 1,
+    border: "none",
+    background: `linear-gradient(90deg, transparent, ${theme.gold}55, transparent)`,
+    margin: "18px 0",
+  };
+
+  const collectItems = [
+    "Location data (only for accurate Prayer Times)",
+    "Basic app usage data (for improving performance)",
+    "No sensitive personal data is collected",
+  ];
+
+  const useItems = [
+    "To provide accurate prayer times based on your location",
+    "To improve app performance and user experience",
+    "To fix bugs and enhance features",
+  ];
+
+  const permissionItems = [
+    "Location Permission: Used only to calculate Prayer Times",
+    "No unnecessary permissions are requested",
+  ];
+
+  const BulletList = ({ items }: { items: string[] }) => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+      {items.map((item) => (
+        <div
+          key={item}
+          style={{ display: "flex", alignItems: "flex-start", gap: 8 }}
+        >
+          <span
+            style={{
+              color: theme.gold,
+              fontSize: 10,
+              lineHeight: "22px",
+              flexShrink: 0,
+              textShadow: `0 0 8px ${theme.gold}80`,
+            }}
+          >
+            ✦
+          </span>
+          <span
+            style={{
+              fontFamily: "'Nunito', sans-serif",
+              fontWeight: 300,
+              fontSize: 13,
+              color: theme.textCream,
+              lineHeight: 1.7,
+            }}
+          >
+            {item}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+
+  return (
+    <div style={{ marginBottom: 20 }}>
+      <SectionHeader>Privacy Policy</SectionHeader>
+      <GlassCard>
+        <div style={{ padding: 20 }}>
+          {/* Main title */}
+          <div style={{ textAlign: "center", marginBottom: 16 }}>
+            <div
+              style={{
+                fontFamily: "'Cinzel Decorative', serif",
+                fontSize: 18,
+                color: theme.gold,
+                marginBottom: 14,
+                textShadow: "0 0 20px rgba(212,168,67,0.4)",
+              }}
+            >
+              Privacy Policy
+            </div>
+            <div style={goldDividerStyle} />
+          </div>
+
+          {/* Introduction */}
+          <p style={{ ...bodyStyle, marginBottom: 16 }}>
+            Ruhani – Duas &amp; Tasbeeh respects your privacy and is committed
+            to protecting your personal information. This policy explains how we
+            collect, use, and safeguard your data.
+          </p>
+
+          <div style={goldDividerStyle} />
+
+          {/* Information We Collect */}
+          <div style={{ marginBottom: 16 }}>
+            <div style={labelStyle}>Information We Collect</div>
+            <BulletList items={collectItems} />
+          </div>
+
+          <div style={goldDividerStyle} />
+
+          {/* How We Use Information */}
+          <div style={{ marginBottom: 16 }}>
+            <div style={labelStyle}>How We Use Information</div>
+            <BulletList items={useItems} />
+          </div>
+
+          <div style={goldDividerStyle} />
+
+          {/* Permissions */}
+          <div style={{ marginBottom: 16 }}>
+            <div style={labelStyle}>Permissions</div>
+            <BulletList items={permissionItems} />
+          </div>
+
+          <div style={goldDividerStyle} />
+
+          {/* Data Sharing */}
+          <div style={{ marginBottom: 16 }}>
+            <div style={labelStyle}>Data Sharing</div>
+            <p style={bodyStyle}>
+              We do{" "}
+              <strong style={{ color: theme.gold, fontWeight: 700 }}>
+                NOT
+              </strong>{" "}
+              sell, trade, or share your personal data with third parties.
+            </p>
+          </div>
+
+          <div style={goldDividerStyle} />
+
+          {/* Third-Party Services */}
+          <div style={{ marginBottom: 16 }}>
+            <div style={labelStyle}>Third-Party Services</div>
+            <p style={bodyStyle}>
+              The app may use trusted third-party services (such as APIs for
+              prayer times), which may collect limited technical data.
+            </p>
+          </div>
+
+          <div style={goldDividerStyle} />
+
+          {/* Security */}
+          <div style={{ marginBottom: 16 }}>
+            <div style={labelStyle}>Security</div>
+            <p style={bodyStyle}>
+              We take reasonable steps to protect your data, but no method is
+              100% secure.
+            </p>
+          </div>
+
+          <div style={goldDividerStyle} />
+
+          {/* Children's Privacy */}
+          <div style={{ marginBottom: 16 }}>
+            <div style={labelStyle}>Children's Privacy</div>
+            <p style={bodyStyle}>
+              This app does not knowingly collect data from children under 13.
+            </p>
+          </div>
+
+          <div style={goldDividerStyle} />
+
+          {/* Changes to Policy */}
+          <div style={{ marginBottom: 16 }}>
+            <div style={labelStyle}>Changes to Policy</div>
+            <p style={bodyStyle}>
+              We may update this Privacy Policy from time to time. Changes will
+              be reflected on this page.
+            </p>
+          </div>
+
+          <div style={goldDividerStyle} />
+
+          {/* Contact */}
+          <div style={{ marginBottom: 0 }}>
+            <div style={labelStyle}>Contact</div>
+            <p style={{ ...bodyStyle, marginBottom: 6 }}>
+              If you have any questions, contact us at:
+            </p>
+            <a
+              href="mailto:ruhaniapp@gmail.com"
+              data-ocid="privacy.contact.link"
+              style={{
+                color: theme.gold,
+                textDecoration: "none",
+                fontFamily: "'Nunito', sans-serif",
+                fontWeight: 400,
+                fontSize: 13,
+                borderBottom: `1px solid ${theme.gold}55`,
+                paddingBottom: 1,
+                transition: "border-color 0.2s ease, opacity 0.2s ease",
+              }}
+            >
+              ruhaniapp@gmail.com
+            </a>
+          </div>
+
+          {/* Footer */}
+          <div
+            style={{
+              height: 1,
+              border: "none",
+              background: `linear-gradient(90deg, transparent, ${theme.gold}40, transparent)`,
+              margin: "20px 0 14px",
+            }}
+          />
+          <div style={{ textAlign: "center" }}>
+            <span
+              style={{
+                fontFamily: "'Nunito', sans-serif",
+                fontWeight: 300,
+                fontSize: 12,
+                color: theme.textMuted,
+              }}
+            >
+              Your privacy matters to us 🤍
+            </span>
           </div>
         </div>
       </GlassCard>
@@ -875,6 +1198,9 @@ export default function SettingsTab() {
 
         {/* About & Disclaimer */}
         <AboutDisclaimerSection />
+
+        {/* Privacy Policy */}
+        <PrivacyPolicySection />
 
         {/* Bottom blessing */}
         <div style={{ textAlign: "center", padding: "16px 0 8px" }}>
