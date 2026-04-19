@@ -1240,14 +1240,7 @@ export default function SettingsTab() {
             }}
           >
             © {new Date().getFullYear()}. Built with ♥ using{" "}
-            <a
-              href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(typeof window !== "undefined" ? window.location.hostname : "")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: theme.gold }}
-            >
-              caffeine.ai
-            </a>
+            Ruhani App
           </p>
         </div>
       </div>
